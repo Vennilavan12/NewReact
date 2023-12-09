@@ -6,8 +6,13 @@
         "image": "vennilavan/dev:latest",
         "essential": true,
         "memory": 128,
-        "cpu": 256
+        "cpu": 256,
+        "portMappings": [
+          {
+            "hostPort": 80,
+            "containerPort": 3000
+          }
+        ]
       }
     ]
   }
-  
