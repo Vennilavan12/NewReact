@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to DockerHub
-      - docker login --username vennilavan -p dckr_pat_S24xwX_73dmdhHpTqKr-3UVNqds
+      - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
   build:
     commands:
       - echo Building Docker image
