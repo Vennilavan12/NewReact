@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to DockerHub
+      - docker login --username vennilavan -p dckr_pat_S24xwX_73dmdhHpTqKr-3UVNqds
+  build:
+    commands:
+      - echo Building Docker image
+      - docker build -t vennilavan/dev:latest .
+
+  post_build:
+    commands:
+      - echo Pushing Docker image to DockerHub
+      - docker push vennilavan/dev:latest
+
+artifacts:
+  files: imagedefinitions.json
