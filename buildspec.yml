@@ -16,4 +16,4 @@ phases:
       - docker push vennilavan/dev:latest
 
 artifacts:
-  files: Dockerfile
+  files: imagedefinitions.json
