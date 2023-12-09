@@ -1,0 +1,13 @@
+{
+    "AWSEBDockerrunVersion": 4,
+    "containerDefinitions": [
+      {
+        "name": "React",
+        "image": "vennilavan/dev:latest",
+        "essential": true,
+        "memory": 128,
+        "cpu": 256
+      }
+    ]
+  }
+  
