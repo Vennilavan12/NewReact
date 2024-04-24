@@ -1,18 +1,23 @@
 {
-    "AWSEBDockerrunVersion": "1",
-    "containerDefinitions": [
-      {
-        "name": "React",
-        "image": "vennilavan/dev:latest",
-        "essential": true,
-        "memory": 128,
-        "cpu": 256,
-        "portMappings": [
-          {
-            "hostPort": 80,
-            "containerPort": 3000
-          }
-        ]
-      }
-    ]
-  }
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "vennilavan/newdev:latest",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 3000,
+      "HostPort": 80
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "React",
+      "image": "vennilavan/newdev:latest",
+      "essential": true,
+      "memory": 128,
+      "cpu": 256
+    }
+  ]
+}
+
