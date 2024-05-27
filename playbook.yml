@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: local
   tasks:
   - name: Apply Kubernetes deployment
     command: kubectl apply -f deploy.yml
