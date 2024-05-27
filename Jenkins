@@ -35,7 +35,7 @@ pipeline {
                ansiblePlaybook(
                         credentialsId: 'ansible-credentials', 
                         playbook: 'playbook.yml', 
-                        inventory: 'etc/ansible/hosts'
+                        inventory: 'hosts'
                     )
                 }
             }     
