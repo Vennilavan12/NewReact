@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    environment {
+        registry = "vennilavan/demodev"
+        AWS_REGION = 'us-east-2'
+        EKS_CLUSTER_NAME = 'my-k8s-cluster'
+        KUBE_NAMESPACE = 'default'
+         
+    }     
+   
+    stages {
+    // Building Docker images
+        stage('Building image') {
+            steps{
+                script {
+                dockerImage = docker.build registry 
+                }
+            }
+        }
+   
+    // Uploading Docker images into AWS ECR
+        stage('Pushing to Dockerhub') {
+            steps{  
+                script { 
+                        sh "docker login --username vennilavan -p $Pass"
+                        sh 'docker push vennilavan/demodev'
+                    }
+                            
+                }
+        }
+
+       stage('K8S Deploy') {
+         steps{
+            script {
+               ansiblePlaybook(
+                        credentialsId: 'ansible-credentials', 
+                        playbook: 'playbook.yml', 
+                        inventory: 'etc/ansible/hosts'
+                    )
+                }
+            }     
+               
+        }
+    }
+}
