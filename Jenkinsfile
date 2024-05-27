@@ -26,9 +26,9 @@ pipeline {
                         sh 'docker push vennilavan/demodev'
                     }
                             
+             }
          }
-        }
-      }
+      
 
        stage('K8S Deploy') {
          steps{
