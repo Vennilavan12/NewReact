@@ -35,7 +35,7 @@ pipeline {
             script {
                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS']]) {
                withKubeConfig(credentialsId: 'newk8s', serverUrl: 'https://8D2BD626D7B16FD912608A73CA98BEF2.gr7.us-east-2.eks.amazonaws.com') {
-                  sh 'kubectl apply -f deploy.yaml'
+                  sh 'kubectl apply -f deploy.yml'
                   }
                }
                
